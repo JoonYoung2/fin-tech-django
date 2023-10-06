@@ -17,4 +17,7 @@ def bank(req):
     print("bank 연동")
     print(req.GET)
 
-    return Response({"key" : "success"})
+    result = gbc.predict([[req.GET['age'], req.GET['duration'], req.GET['campaign'], req.GET['pdays'], req.GET['previous']]])
+    print("result : ", result[0])
+
+    return Response({"key" : result[0]})
