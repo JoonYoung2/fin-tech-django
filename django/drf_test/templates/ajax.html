@@ -1,0 +1,23 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+function get() {
+  $.ajax({ url : "/result/", type : "GET",
+    success : function(data) { 
+        $('#label').text(data.execute) 
+    } });
+}
+function post() {  $.ajax({ url : "/result/", type : "post",
+    success : function(data) { $('#label').text(data.execute) } });
+}
+function put() {  $.ajax({ url : "/result/", type : "put",
+    success : function(data) { $('#label').text(data.execute) } });
+}
+function del() {  $.ajax({ url : "/result/", type : "delete",
+    success : function(data) { $('#label').text(data.execute) } });
+}
+</script>
+<label id="label">button click</label><hr>
+<button onclick="get()">GET</button> <button onclick="post()">POST</button>
+<button onclick="put()">PUT</button> <button onclick="del()">DELETE</button>
+
+<a href="http://localhost:8081/abc/test">스프링 이동</a>
